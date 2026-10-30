@@ -1,0 +1,88 @@
+/* DukaanMate — Global Styles */
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base: Make app feel large and readable for non-tech shopkeepers ── */
+@layer base {
+  html {
+    font-size: 17px; /* Slightly larger than default 16px */
+  }
+
+  body {
+    @apply bg-orange-50 text-gray-800 font-sans;
+    -webkit-tap-highlight-color: transparent; /* Remove tap flash on mobile */
+  }
+
+  /* All buttons must be large enough to tap easily */
+  button {
+    @apply min-h-[44px];
+  }
+
+  /* Headings */
+  h1 { @apply text-2xl font-bold; }
+  h2 { @apply text-xl font-semibold; }
+  h3 { @apply text-lg font-semibold; }
+}
+
+/* ── Components: Reusable styles ── */
+@layer components {
+  /* Primary action button — orange, large, full-width on mobile */
+  .btn-primary {
+    @apply w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700
+           text-white font-semibold py-3 px-6 rounded-xl
+           transition-colors duration-150 min-h-[48px]
+           focus:outline-none focus:ring-4 focus:ring-orange-300
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Secondary button — outline style */
+  .btn-secondary {
+    @apply w-full bg-white hover:bg-orange-50 active:bg-orange-100
+           text-orange-600 font-semibold py-3 px-6 rounded-xl border-2 border-orange-400
+           transition-colors duration-150 min-h-[48px]
+           focus:outline-none focus:ring-4 focus:ring-orange-200;
+  }
+
+  /* Danger button — red, for delete actions */
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold
+           py-2 px-4 rounded-lg transition-colors duration-150 min-h-[44px]
+           focus:outline-none focus:ring-4 focus:ring-red-300;
+  }
+
+  /* Card container */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-orange-100 p-4;
+  }
+
+  /* Form input */
+  .input {
+    @apply w-full border border-gray-300 rounded-xl px-4 py-3 text-base
+           focus:outline-none focus:ring-4 focus:ring-orange-200 focus:border-orange-400
+           placeholder-gray-400 bg-white min-h-[48px];
+  }
+
+  /* Form label */
+  .label {
+    @apply block text-sm font-semibold text-gray-700 mb-1;
+  }
+
+  /* Status badges */
+  .badge-success { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800; }
+  .badge-warning { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800; }
+  .badge-danger  { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800; }
+  .badge-info    { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800; }
+
+  /* Page wrapper — max width on tablet+, centered */
+  .page-wrapper {
+    @apply max-w-lg mx-auto min-h-screen bg-white;
+  }
+
+  /* Page header */
+  .page-header {
+    @apply sticky top-0 z-40 bg-white border-b border-orange-100 px-4 py-3 flex items-center gap-3;
+  }
+}
+
